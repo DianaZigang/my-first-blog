@@ -13,7 +13,7 @@ def post_detail(request, pk):
 
 
 def post_list1(request):
-    return render(request, 'blog/post_list1.html')
+    return render(request, 'blog/post_list1.html', {})
 
 
 def post_list(request):
@@ -99,6 +99,3 @@ def comment_remove(request, pk):
     comment.delete()
     return redirect('post_detail', pk=comment.post.pk)
 
-def questions_list(request, pk):
-    post = get_object_or_404(Post, pk=pk)
-    return render(request, 'blog/questions_list.html', {'post': post})

@@ -1,30 +1,37 @@
 {% load staticfiles %}
 <html>
 <head>
-<title>StudHelp</title>
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap..">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap..">
-<link href='//fonts.googleapis.com/css?family=Lobster&subset=la.. rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <style>
+    body{
+        background: url('/static/img/fon1.jpg')
+    }
+    </style>
+    <title>StudHelp</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap..">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap..">
+    <link href='//fonts.googleapis.com/css?family=Lobster&subset=la.. rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
 </head>
 <body>
-<div class="page-header">
-{% if user.is_authenticated %}
-<a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-<a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
-<p class="top-menu">Hello {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
-{% else %}
-<a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
-{% endif %}
-<h1><a href="/">Помощь студентам</a></h1>
-</div>
-<div class="content container">
-<div class="row">
-<div class="col-md-8">
-{% block content %}
-{% endblock %}
-</div>
-</div>
-</div>
+    <div class="page-header">
+    {% if user.is_authenticated %}
+        <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+        <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+        <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
+        <p class="top-menu">Hello {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
+    {% else %}
+        <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
+    {% endif %}
+    <h4>Добро пожаловать на</h4>
+    <h1><a href="/">StudHelp</a></h1>
+    </div>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
 </body>
 </html>
